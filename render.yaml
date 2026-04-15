@@ -1,0 +1,22 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: sipm-backend
+    runtime: node
+    buildCommand: npm install && cd backend && npm install
+    startCommand: cd backend && node index.js
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: NODE_ENV
+        value: production
+      - key: VITE_POCKETBASE_URL
+        value: https://your-pocketbase-url.pockethost.io
+      - key: POCKETBASE_ADMIN_EMAIL
+        value: admin@sistema.local
+      - key: POCKETBASE_ADMIN_PASSWORD
+        value: AdminSecure123
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SESSION_SECRET
+        generateValue: true
